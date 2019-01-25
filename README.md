@@ -29,6 +29,17 @@ plumb	client	window	$browser
 
 ```
 
+A special note about application/octet-stream.
+This is a fallback, and can be used as a catch-all, to re-plumb so you can attempt to use filename heuristics.
+
+```
+
+type	is	application/octet-stream
+data	matches	'[^ ]+'
+plumb	start	plumb -t text $0
+
+```
+
 ## Using `store`
 
 Store parses remote resources for an appropriate mime-type, and issues plumb messages with `type	is	image/png`, where image/png is an example of one such mime-type. It also sets dst to storage on your behalf. 
